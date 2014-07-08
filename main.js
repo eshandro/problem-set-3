@@ -46,6 +46,9 @@ var ceasarCipher = function(str, num) {
 		if (newCode > 90 && newCode < 97) {
 			newCode -= 26;
 		}
+		if (item <91 && newCode > 96) {
+			newCode -= 26;
+		}
 		if (newCode > 122) {
 			newCode -= 26;
 		}
@@ -54,6 +57,5 @@ var ceasarCipher = function(str, num) {
 		}		
 		codeArray.push(String.fromCharCode(newCode));
 	});
-		return codeArray.join('');
-
-	}
+		return (codeArray.splice(str.length)).join('');
+	};
