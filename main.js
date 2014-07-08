@@ -17,3 +17,17 @@ var palindrome = function(word) {
 	else { return false; }
 
 }
+
+
+// 2 - dashInsert - insert dashes between adjacent odd numbers
+
+var dashInsert = function(num) {
+	var toArray = (num.toString()).split('');
+	for (i=0; i < toArray.length-1; i++) {
+		if (parseInt(toArray[i]) % 2 !== 0 && parseInt(toArray[i+1]) % 2 !== 0) {
+			toArray[i] = toArray[i] + '-';
+		}
+	}
+	var result = toArray.join('');
+	return result;
+};
