@@ -31,3 +31,29 @@ var dashInsert = function(num) {
 	var result = toArray.join('');
 	return result;
 };
+
+// 3 ceasarCipher - takes string and number - number is used to transform the string 
+// by moving the letter up the number in the alphabet.
+
+var ceasarCipher = function(str, num) { 
+	var toArray = str.split('');
+	var codeArray = [];
+	_.map(toArray, function(item) {
+		codeArray.push(parseInt(item.charCodeAt()));
+	});
+	_.map(codeArray, function(item) {
+		var newCode = item + num;
+		if (newCode > 90 && newCode < 97) {
+			newCode -= 26;
+		}
+		if (newCode > 122) {
+			newCode -= 26;
+		}
+		if (newCode - num === 32) {
+			newCode -= num
+		}		
+		codeArray.push(String.fromCharCode(newCode));
+	});
+		return codeArray.join('');
+
+	}
